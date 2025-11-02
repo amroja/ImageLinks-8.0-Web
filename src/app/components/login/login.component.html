@@ -1,4 +1,4 @@
-<!-- <div class="blank-layout-container justify-content-center align-items-center">
+<div class="blank-layout-container justify-content-center align-items-center">
   <div class="position-relative row w-100 h-100 bg-gredient"
     [style.background-image]="'url(/assets/images/backgrounds/backgroundLogin.png)'" [style.background-size]="'cover'"
     [style.background-position]="'center'">
@@ -41,91 +41,6 @@
             <button mat-flat-button color="primary" class="w-100" [disabled]="!form.valid">
               Sign In
             </button>
-          </form>
-        </mat-card-content>
-      </mat-card>
-    </div>
-  </div>
-</div> -->
-
-<div class="blank-layout-container">
-  <div class="position-relative row w-100 h-100 bg-gradient"
-    [style.background-image]="'url(/assets/images/backgrounds/backgroundLogin.png)'" [style.background-size]="'cover'"
-    [style.background-position]="'center'">
-
-    <div class="col-lg-4 col-md-6 col-sm-8 mx-auto d-flex align-items-center min-vh-100">
-      <mat-card class="cardWithShadow boxed-auth w-100">
-        <mat-card-content class="p-32">
-          <!-- Logo -->
-          <div class="text-center mb-4">
-            <app-branding></app-branding>
-          </div>
-
-          <!-- Welcome Text -->
-          <div class="text-center mb-1">
-            <h4 class="mb-0">Welcome to ImageLinks DMS</h4>
-            <p class="text-muted">Sign in to continue</p>
-          </div>
-
-          <form class="m-t-30" [formGroup]="form" (ngSubmit)="submit()">
-            <!-- Username Field -->
-            <mat-form-field appearance="outline" class="w-100" color="primary">
-              <mat-icon matPrefix class="me-2">person_outline</mat-icon>
-              <input matInput placeholder="Username" formControlName="uname" />
-              @if(f['uname'].touched && f['uname'].invalid) {
-              <mat-error>
-                @if(f['uname'].errors && f['uname'].errors['required']) {
-                <span>Name is required.</span>
-                } @if(f['uname'].errors && f['uname'].errors['minlength']) {
-                <span>Name should be 6 character.</span>
-                }
-              </mat-error>
-              }
-            </mat-form-field>
-
-            <!-- Password Field -->
-            <mat-form-field appearance="outline" class="w-100" color="primary">
-              <mat-icon matPrefix class="me-2">lock_outline</mat-icon>
-              <input matInput type="password" placeholder="Password" formControlName="password" />
-              @if(f['password'].touched && f['password'].invalid) {
-              <mat-error>
-                @if(f['password'].errors && f['password'].errors['required']) {
-                <span>Password is required.</span>
-                }
-              </mat-error>
-              }
-            </mat-form-field>
-
-            <!-- Toggle Switches -->
-            <div class="d-flex flex-column gap-2 mb-3">
-              <div class="d-flex align-items-center justify-content-between">
-                <span class="f-s-14">Unified Login</span>
-                <mat-slide-toggle color="warn" formControlName="unifiedLogin"></mat-slide-toggle>
-              </div>
-              <div class="d-flex align-items-center justify-content-between">
-                <span class="f-s-14">Remember Me</span>
-                <mat-slide-toggle color="warn" formControlName="rememberMe"></mat-slide-toggle>
-              </div>
-            </div>
-
-            <!-- Language Selector -->
-            <mat-form-field appearance="outline" class="w-100 mb-3" color="primary">
-              <mat-label>Language</mat-label>
-              <mat-select formControlName="language">
-                <mat-option value="ar">العربية (Arabic)</mat-option>
-                <mat-option value="en">English</mat-option>
-              </mat-select>
-            </mat-form-field>
-
-            <!-- Login Button -->
-            <button mat-flat-button color="primary" class="w-100 login-btn" [disabled]="!form.valid" type="submit">
-              Login
-            </button>
-
-            <!-- Footer -->
-            <div class="text-center mt-4">
-              <p class="text-muted f-s-12 mb-0">© 2025 ImageLinks. All rights reserved.</p>
-            </div>
           </form>
         </mat-card-content>
       </mat-card>

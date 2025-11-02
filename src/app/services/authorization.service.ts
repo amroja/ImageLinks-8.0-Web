@@ -10,6 +10,7 @@ import { Config } from '../classes/Config';
   providedIn: 'root',
 })
 export class AuthorizationService {
+  public user: BehaviorSubject<User>;
   private util = inject(Util);
   private httpClient = inject(HttpClient);
   private commonService = inject(CommonService);
