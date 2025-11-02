@@ -19,14 +19,10 @@ import { finalize, Observable, Subject, timer } from 'rxjs';
 import { User } from '../classes/User';
 import { Right } from '../classes/Right.enum';
 import { Config } from '../classes/Config';
-import { HttpClickHandler } from '../directives/http-click.directive';
 import { RequestMethod } from '../classes/RequestMethod';
 import { ToastType } from '../classes/ToastType';
 import { navItems } from '../layouts/full/vertical/sidebar/sidebar-data';
-// import * as CryptoJS from 'crypto-js';
-// import jwt_decode from 'jwt-decode';
-// import * as XLSX from 'xlsx';
-// import * as FileSaver from 'file-saver';
+import { HttpClickHandler } from '../directives/HttpClick.directive';
 
 @Injectable({
   providedIn: 'root',
@@ -51,9 +47,6 @@ export class Util {
       : `${base}/api/`;
   }
 
-  /** --------------------------------------------------------------------
-   * 🧩  API calls
-   * -------------------------------------------------------------------- */
   createApi(
     url: string,
     data?: any,
@@ -85,9 +78,6 @@ export class Util {
     return { headers };
   }
 
-  /** --------------------------------------------------------------------
-   * 🧭  Navigation & Routes
-   * -------------------------------------------------------------------- */
   navigate(path: string, extras?: NavigationExtras): void {
     this.router.navigate([path], extras);
   }
@@ -98,9 +88,6 @@ export class Util {
       .sort((a, b) => (a.data?.['order'] ?? 0) - (b.data?.['order'] ?? 0));
   }
 
-  /** --------------------------------------------------------------------
-   * 🔔  Toasts
-   * -------------------------------------------------------------------- */
   createToast(
     message: string,
     type: ToastType,
@@ -134,9 +121,6 @@ export class Util {
     });
   }
 
-  /** --------------------------------------------------------------------
-   * 💬  Translate helpers
-   * -------------------------------------------------------------------- */
   getLabel(key: string): string {
     return this.translate.instant(key);
   }
@@ -145,17 +129,11 @@ export class Util {
     return this.translate.currentLang === 'ar' ? 'rtl' : 'ltr';
   }
 
-  /** --------------------------------------------------------------------
-   * 🧱  Dialogs
-   * -------------------------------------------------------------------- */
   openDialog<T>(component: any, config: MatDialogConfig): MatDialogRef<T> {
     config.direction = this.getDirection();
     return this.dialog.open<T>(component, config);
   }
 
-  /** --------------------------------------------------------------------
-   * 🧾  Form errors
-   * -------------------------------------------------------------------- */
   getErrorMessage(control: AbstractControl): string {
     if (!control.errors) return '';
 
@@ -177,9 +155,6 @@ export class Util {
     return msg.join(' | ') || this.getLabel('error');
   }
 
-  /** --------------------------------------------------------------------
-   * 💾  Storage
-   * -------------------------------------------------------------------- */
   setToStorage(key: string, obj: any, local = true): void {
     const val = typeof obj === 'string' ? obj : JSON.stringify(obj);
     (local ? localStorage : sessionStorage).setItem(key, val);
@@ -205,9 +180,6 @@ export class Util {
     if (session) sessionStorage.removeItem(key);
   }
 
-  /** --------------------------------------------------------------------
-   * 🧮  General utilities
-   * -------------------------------------------------------------------- */
   isStringEmpty(value: string): boolean {
     return !value?.trim();
   }
@@ -230,9 +202,6 @@ export class Util {
     );
   }
 
-  /** --------------------------------------------------------------------
-   * 🔐  Encryption
-   * -------------------------------------------------------------------- */
   private aesKey = 'M7UDO9dF506xIQDJScbMxw==';
   private aesIV = 'RBxzFN4wb0WpoL9A+pH80Q==';
 
@@ -264,9 +233,6 @@ export class Util {
     // return decrypted.toString(CryptoJS.enc.Utf8);
   }
 
-  /** --------------------------------------------------------------------
-   * 📊  Excel export
-   * -------------------------------------------------------------------- */
   exportAsExcelFile(data: any[], meta: any[], file: string): void {
     // const header = Object.fromEntries(meta.map((m) => [m.dataLabel, m.headerLabel]));
     // const rows = [
@@ -298,9 +264,6 @@ export class Util {
     return path.split('.').reduce((a, c) => (a ? a[c] : null), obj);
   }
 
-  /** --------------------------------------------------------------------
-   * 🕑  Date helpers
-   * -------------------------------------------------------------------- */
   formatDate(date: Date, fmt: string) {
     return this.datePipe.transform(date, fmt);
   }
@@ -330,9 +293,6 @@ export class Util {
     return; // jwt_decode(token);
   }
 
-  /** --------------------------------------------------------------------
-   * 🧭  Breadcrumb builder
-   * -------------------------------------------------------------------- */
   pageTitle: any[] = [];
 
   GetUrl(): void {
