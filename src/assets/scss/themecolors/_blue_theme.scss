@@ -1,0 +1,23 @@
+html.blue_theme {
+  // --mat-sys-primary: rgb(93, 135, 255);
+  // --mat-sys-primary-fixed-dim: rgb(93, 135, 255, 0.15);
+  // --mat-sys-secondary: rgb(68, 183, 247);
+  // --mat-sys-secondary-fixed-dim: rgb(68, 183, 247, 0.15);
+
+
+  --mat-sys-primary:#d91f34; /* #d91f34 */
+  --mat-sys-primary-fixed-dim: rgba(220, 38, 38, 0.15);
+
+  --mat-sys-secondary: rgb(107, 114, 128); /* #6b7280 */
+  --mat-sys-secondary-fixed-dim: rgba(107, 114, 128, 0.15);
+
+
+  --mat-sys-error: rgb(239, 68, 68); /* #ef4444 */
+  --mat-sys-error-fixed-dim: rgba(239, 68, 68, 0.15);
+
+  /* Backgrounds */
+  --mat-sys-surface-bright: #ffffff; 
+  --mat-sys-on-background: #111827; 
+
+  --mat-sys-outline-variant: #e5e7eb;
+}
