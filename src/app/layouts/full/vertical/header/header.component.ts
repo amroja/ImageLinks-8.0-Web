@@ -81,7 +81,7 @@ export class HeaderComponent {
     {
       language: 'العربية',
       code: 'ar',
-      icon: '/assets/images/flag/icon-flag-ar.svg',
+      icon: '/assets/images/flag/icon-flag-es.svg',
     },
     {
       language: 'English',
@@ -132,6 +132,7 @@ export class HeaderComponent {
   }
 
   changeLanguage(lang: any): void {
+    debugger;
     this.translate.use(lang.code);
     this.selectedLanguage = lang;
 
@@ -140,7 +141,6 @@ export class HeaderComponent {
 
     this.options.dir = dir;
     this.emitOptions();
-    console.log('Language →', lang.code, '| DIR →', dir);
   }
 
   notifications: notifications[] = [

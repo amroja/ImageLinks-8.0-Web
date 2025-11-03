@@ -3,6 +3,7 @@ import { LoginComponent } from './components/login/login.component';
 import { FullComponent } from './layouts/full/full.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { RoutingGuard } from './services/routing-guard.service';
+import { TaskAndDocumentTrackersComponent } from './Task-And-Document-Trackers/Task-And-Document-Trackers.component';
 export const routes: Routes = [
   {
     path: '',
@@ -21,6 +22,10 @@ export const routes: Routes = [
       {
         path: 'dashboards/dashboard1',
         component: DashboardComponent,
+      },
+      {
+        path: 'dashboards/TaskAndDocumentTrackers',
+        component: TaskAndDocumentTrackersComponent,
       },
     ],
   },

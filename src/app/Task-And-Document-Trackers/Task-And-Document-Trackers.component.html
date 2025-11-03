@@ -1,0 +1,169 @@
+<div class="row">
+  <div class="col-12">
+    <mat-card class="mat-card-top cardWithShadow position-relative">
+      <mat-sidenav-container [ngClass]="{
+          'side-panel-opened': sidePanelOpened(),
+          'side-panel-closed': !sidePanelOpened()
+        }" style="min-height: 80vh">
+        <mat-sidenav #chatnav mode="side" class="app-left-sidebar" [mode]="isOver() ? 'over' : 'side'"
+          [opened]="!isOver()" (open)="sidePanelOpened.set(true)" (close)="sidePanelOpened.set(false)" position="start">
+          <mat-toolbar>
+            <h4 class="f-w-500 f-s-18 m-0">Trackers</h4>
+          </mat-toolbar>
+          <div class="m-x-12">
+            <mat-nav-list>
+              <!-- Inbox -->
+              <mat-list-item (click)="selectionlblClick('all')" class="all m-b-2"
+                [class.bg-light-primary]="selectedCategory() === 'all'">
+                <div class="d-flex align-items-center">
+                  <span class="f-s-14">{{ 'Inbox'| translate }}</span>
+                  <div class="m-l-auto">
+                    <span
+                      class="icon-27 bg-primary text-white rounded d-flex align-items-center justify-content-center">
+                      {{totalTodos()}}
+                    </span>
+                  </div>
+                </div>
+              </mat-list-item>
+
+              <!-- View Only -->
+              <mat-list-item [class.bg-light-primary]="selectedCategory() === 'uncomplete'" class="incomplete m-b-2"
+                (click)="selectionlblClick('uncomplete')">
+                <div class="d-flex align-items-center">
+                  <span class="f-s-14">View Only</span>
+                  <div class="m-l-auto">
+                    <span class="icon-27 bg-error text-white rounded d-flex align-items-center justify-content-center">
+                      {{totalIncomplete()}}
+                    </span>
+                  </div>
+                </div>
+              </mat-list-item>
+
+              <!-- Outbox -->
+              <mat-list-item [class.bg-light-primary]="selectedCategory() === 'outbox'" class="complete m-b-2"
+                (click)="selectionlblClick('outbox')">
+                <div class="d-flex align-items-center">
+                  <span class="f-s-14">Outbox</span>
+                </div>
+              </mat-list-item>
+
+              <!-- Follow Up -->
+              <mat-list-item [class.bg-light-primary]="selectedCategory() === 'followup'" class="complete m-b-2"
+                (click)="selectionlblClick('followup')">
+                <div class="d-flex align-items-center">
+                  <span class="f-s-14">Follow Up</span>
+                  <div class="m-l-auto">
+                    <span
+                      class="icon-27 bg-success text-white rounded d-flex align-items-center justify-content-center">
+                      {{totalCompleted()}}
+                    </span>
+                  </div>
+                </div>
+              </mat-list-item>
+
+              <!-- Manager Monitor -->
+              <mat-list-item [class.bg-light-primary]="selectedCategory() === 'manager'" class="complete m-b-2"
+                (click)="selectionlblClick('manager')">
+                <div class="d-flex align-items-center">
+                  <span class="f-s-14">Manager Monitor</span>
+                  <div class="m-l-auto">
+                    <span
+                      class="icon-27 bg-success text-white rounded d-flex align-items-center justify-content-center">
+                      {{totalCompleted()}}
+                    </span>
+                  </div>
+                </div>
+              </mat-list-item>
+
+              <!-- Created by Me -->
+              <mat-list-item [class.bg-light-primary]="selectedCategory() === 'created'" class="complete m-b-2"
+                (click)="selectionlblClick('created')">
+                <div class="d-flex align-items-center">
+                  <span class="f-s-14">Created by Me</span>
+                  <div class="m-l-auto">
+                    <span
+                      class="icon-27 bg-success text-white rounded d-flex align-items-center justify-content-center">
+                      {{totalCompleted()}}
+                    </span>
+                  </div>
+                </div>
+              </mat-list-item>
+
+              <!-- Generalization -->
+              <mat-list-item [class.bg-light-primary]="selectedCategory() === 'generalization'" class="complete m-b-2"
+                (click)="selectionlblClick('generalization')">
+                <div class="d-flex align-items-center">
+                  <span class="f-s-14">Generalization</span>
+                  <div class="m-l-auto">
+                    <span
+                      class="icon-27 bg-success text-white rounded d-flex align-items-center justify-content-center">
+                      {{totalCompleted()}}
+                    </span>
+                  </div>
+                </div>
+              </mat-list-item>
+
+              <!-- Completed Tasks -->
+              <mat-list-item [class.bg-light-primary]="selectedCategory() === 'complete'" class="complete m-b-2"
+                (click)="selectionlblClick('complete')">
+                <div class="d-flex align-items-center">
+                  <span class="f-s-14">Completed Tasks</span>
+                  <div class="m-l-auto">
+                    <span
+                      class="icon-27 bg-success text-white rounded d-flex align-items-center justify-content-center">
+                      {{totalCompleted()}}
+                    </span>
+                  </div>
+                </div>
+              </mat-list-item>
+            </mat-nav-list>
+          </div>
+        </mat-sidenav>
+        <mat-sidenav-content>
+          <mat-toolbar>
+            <div class="d-flex align-items-center justify-content-between w-100">
+              <div class="d-flex align-items-center">
+                <button mat-icon-button (click)="chatnav.toggle()">
+                  <i-tabler name="align-left" class="icon-20"></i-tabler>
+                </button>
+                <h5 class="m-0 m-l-8">{{getCategoryTitle()}}</h5>
+              </div>
+              <span class="bg-primary text-white p-8 p-y-2 rounded f-s-14">
+                {{ remainingList() }} Tasks left
+              </span>
+            </div>
+          </mat-toolbar>
+          <mat-divider></mat-divider>
+          <div class="p-16">
+            @switch (selectedCategory()) {
+            @case ('all') {
+            <app-inbox></app-inbox>
+            }
+            @case ('uncomplete') {
+            <app-view-only></app-view-only>
+            }
+            @case ('outbox') {
+            <app-outbox></app-outbox>
+            }
+            @case ('followup') {
+            <app-follow-up></app-follow-up>
+            }
+            @case ('manager') {
+            <app-manager-monitor></app-manager-monitor>
+            }
+            @case ('created') {
+            <app-created-by-me></app-created-by-me>
+            }
+            @case ('generalization') {
+            <app-generalization></app-generalization>
+            }
+            @case ('complete') {
+            <app-completed-tasks></app-completed-tasks>
+            }
+            }
+          </div>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+    </mat-card>
+  </div>
+</div>

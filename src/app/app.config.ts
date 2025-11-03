@@ -68,11 +68,6 @@ export const appConfig: ApplicationConfig = {
       }),
       withComponentInputBinding()
     ),
-    provideHttpClient(
-      withInterceptors([
-        (req, next) => inject(APIInterceptor).intercept(req, next),
-      ])
-    ),
     provideClientHydration(),
     provideAnimationsAsync(),
     importProvidersFrom(

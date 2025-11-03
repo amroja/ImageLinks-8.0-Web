@@ -5,12 +5,12 @@ import { CommonService } from '../services/common.service';
 import { throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Util } from '../services/Util.service';
-import { TranslatePipe } from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 import { ToastType } from '../classes/ToastType';
 
 export const APIInterceptor: HttpInterceptorFn = (req, next) => {
   const util = inject(Util);
-  const translatePipe = inject(TranslatePipe);
+  const translatePipe = inject(TranslateService);
   const authorizationService = inject(AuthorizationService);
   const commonServices = inject(CommonService);
   return next(req).pipe(
@@ -21,7 +21,7 @@ export const APIInterceptor: HttpInterceptorFn = (req, next) => {
         return throwError(() => error);
       } else {
         util.createToast(
-          translatePipe.transform('somethingWrong'),
+          translatePipe.instant('somethingWrong'),
           ToastType.ERROR
         );
         return throwError(() => error);

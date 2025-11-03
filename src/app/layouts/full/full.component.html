@@ -5,6 +5,8 @@
       'sidebarNav-horizontal': options.horizontal,
       cardBorder: options.cardBorder
     }">
+
+    <!-- Main Sidebar -->
     <mat-sidenav #leftsidenav [mode]="isOver ? 'over' : 'side'" [opened]="
         options.navPos === 'side' &&
         options.sidenavOpened &&
@@ -37,6 +39,9 @@
         </div>
       </div>
     </mat-sidenav>
+
+
+    <!-- Main Content -->
     <mat-sidenav-content class="contentWrapper" #content>
       <app-header [showToggle]="!isOver" (toggleCollapsed)="toggleCollapsed()" (toggleMobileNav)="sidenav.toggle()"
         (toggleMobileFilterNav)="toggleFilterNav()" (optionsChange)="receiveOptions($event)"></app-header>
@@ -46,6 +51,7 @@
       </main>
     </mat-sidenav-content>
 
+    <!-- Customizer -->
     <mat-sidenav #customizerRight mode="over" position="end">
       <div class="p-x-16 p-y-20 d-flex align-items-center justify-content-between">
         <h3 class="f-s-21 f-w-600">Settings</h3>
@@ -54,7 +60,6 @@
         </button>
       </div>
       <mat-divider></mat-divider>
-
       <app-customizer (optionsChange)="receiveOptions($event)"></app-customizer>
     </mat-sidenav>
   </mat-sidenav-container>
