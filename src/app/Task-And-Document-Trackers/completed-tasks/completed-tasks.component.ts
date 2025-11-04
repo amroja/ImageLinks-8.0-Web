@@ -9,13 +9,7 @@ import { MatDivider } from '@angular/material/divider';
   selector: 'app-completed-tasks',
   templateUrl: './completed-tasks.component.html',
   styleUrls: ['./completed-tasks.component.css'],
-  imports: [
-    MatSidenavContent,
-    MatToolbar,
-    TablerIconComponent,
-    MatCheckbox,
-    MatDivider,
-  ],
+  imports: [],
 })
 export class CompletedTasksComponent implements OnInit {
   constructor() {}

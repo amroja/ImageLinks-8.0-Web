@@ -18,6 +18,7 @@ import { ManagerMonitorComponent } from './manager-monitor/manager-monitor.compo
 import { CreatedByMeComponent } from './created-by-me/created-by-me.component';
 import { GeneralizationComponent } from './generalization/generalization.component';
 import { CompletedTasksComponent } from './completed-tasks/completed-tasks.component';
+import { NavigationTabsComponent } from '../components/navigation-tabs/navigation-tabs.component';
 @Component({
   selector: 'app-Task-And-Document-Trackers',
   templateUrl: './Task-And-Document-Trackers.component.html',
@@ -37,6 +38,7 @@ import { CompletedTasksComponent } from './completed-tasks/completed-tasks.compo
     CreatedByMeComponent,
     GeneralizationComponent,
     CompletedTasksComponent,
+    NavigationTabsComponent,
   ],
 })
 export class TaskAndDocumentTrackersComponent implements OnInit {

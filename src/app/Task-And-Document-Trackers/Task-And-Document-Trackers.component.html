@@ -126,11 +126,11 @@
                 <button mat-icon-button (click)="chatnav.toggle()">
                   <i-tabler name="align-left" class="icon-20"></i-tabler>
                 </button>
-                <h5 class="m-0 m-l-8">{{getCategoryTitle()}}</h5>
+
+                <h5 class="m-0 m-l-8 m-r-30 ">{{getCategoryTitle()}}</h5>
+                <app-navigation-tabs></app-navigation-tabs>
               </div>
-              <span class="bg-primary text-white p-8 p-y-2 rounded f-s-14">
-                {{ remainingList() }} Tasks left
-              </span>
+
             </div>
           </mat-toolbar>
           <mat-divider></mat-divider>
