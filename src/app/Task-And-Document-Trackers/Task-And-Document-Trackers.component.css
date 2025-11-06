@@ -13,11 +13,11 @@
 
 .sticky-toolbar-wrapper {
   position: sticky;
-  top: 70px;
+  top: 64px;
   z-index: 999;
   background: var(--mat-sys-background);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
-  margin-bottom: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
 }
 
 /* ===================================
@@ -39,8 +39,9 @@
    =================================== */
 
 .app-left-sidebar {
-  width: 240px;
+  width: 220px;
   border-right: 1px solid var(--mat-sys-outline-variant);
+  box-shadow: 1px 0 3px rgba(0, 0, 0, 0.05);
 }
 
 .sidebar-content {
@@ -173,6 +174,8 @@
 .scrollable-content {
   background: var(--mat-sys-background);
   min-height: 300px;
+  padding: 16px;
+  overflow-y: auto;
 }
 
 /* ===================================
@@ -194,7 +197,7 @@ mat-sidenav-container {
 
 @media (max-width: 1024px) {
   .sticky-toolbar-wrapper {
-    top: 64px;
+    top: 60px;
   }
 
   .trackers-content {
@@ -202,14 +205,18 @@ mat-sidenav-container {
   }
 
   .app-left-sidebar {
-    width: 220px;
+    width: 200px;
+  }
+
+  .scrollable-content {
+    padding: 12px;
   }
 }
 
 @media (max-width: 768px) {
   .sticky-toolbar-wrapper {
     top: 56px;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
 
   .trackers-content {
@@ -217,7 +224,7 @@ mat-sidenav-container {
   }
 
   .app-left-sidebar {
-    width: 200px;
+    width: 180px;
   }
 
   .sidebar-header {
@@ -247,6 +254,10 @@ mat-sidenav-container {
     padding: 3px 10px;
     font-size: 11px;
   }
+
+  .scrollable-content {
+    padding: 10px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -256,6 +267,10 @@ mat-sidenav-container {
 
   .nav-item .f-s-14 {
     font-size: 12px !important;
+  }
+
+  .scrollable-content {
+    padding: 8px;
   }
 }
 
