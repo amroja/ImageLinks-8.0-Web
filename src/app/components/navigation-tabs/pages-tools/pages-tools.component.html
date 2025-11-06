@@ -1,3 +1,22 @@
-<p>
-  pages-tools works!
-</p>
+<!-- pages-tools.component.html -->
+<div class="toolbar-content">
+  <!-- Sync with dropdown -->
+  <button mat-stroked-button [matMenuTriggerFor]="syncMenu" class="toolbar-btn">
+    <mat-icon>sync_alt</mat-icon>
+    <mat-icon class="dropdown-icon">arrow_drop_down</mat-icon>
+  </button>
+  <mat-menu #syncMenu="matMenu">
+    <button mat-menu-item>Sync All Pages</button>
+    <button mat-menu-item>Sync Selected</button>
+  </mat-menu>
+
+  <!-- Refresh -->
+  <button mat-stroked-button class="toolbar-btn">
+    <mat-icon>refresh</mat-icon>
+  </button>
+
+  <!-- Print -->
+  <button mat-stroked-button class="toolbar-btn">
+    <mat-icon>print</mat-icon>
+  </button>
+</div>

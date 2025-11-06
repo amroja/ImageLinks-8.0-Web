@@ -1,3 +1,28 @@
-<p>
-  search-tools works!
-</p>
+<div class="toolbar-content">
+  <!-- Apps/Grid -->
+  <button mat-stroked-button class="toolbar-btn">
+    <mat-icon>apps</mat-icon>
+  </button>
+
+  <!-- Filter with dropdown -->
+  <button mat-stroked-button [matMenuTriggerFor]="filterMenu" class="toolbar-btn">
+    <mat-icon>filter_alt</mat-icon>
+    <mat-icon class="dropdown-icon">arrow_drop_down</mat-icon>
+  </button>
+  <mat-menu #filterMenu="matMenu">
+    <button mat-menu-item>All Types</button>
+    <button mat-menu-item>Documents Only</button>
+    <button mat-menu-item>Images Only</button>
+  </mat-menu>
+
+  <!-- Language with dropdown -->
+  <button mat-stroked-button [matMenuTriggerFor]="languageMenu" class="toolbar-btn">
+    <mat-icon>language</mat-icon>
+    <mat-icon class="dropdown-icon">arrow_drop_down</mat-icon>
+  </button>
+  <mat-menu #languageMenu="matMenu">
+    <button mat-menu-item>English</button>
+    <button mat-menu-item>Spanish</button>
+    <button mat-menu-item>French</button>
+  </mat-menu>
+</div>

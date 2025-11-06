@@ -1,0 +1,134 @@
+/* ===================================
+   View Toolbar - Compact
+   =================================== */
+
+.view-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+}
+
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.toolbar-btn {
+  width: 34px !important;
+  height: 34px !important;
+  min-width: 34px !important;
+  padding: 0 !important;
+  border: 1px solid var(--mat-sys-outline-variant) !important;
+  border-radius: 6px !important;
+  color: var(--mat-sys-on-background) !important;
+  transition: all 0.2s ease !important;
+}
+
+.toolbar-btn mat-icon {
+  font-size: 18px !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.toolbar-btn:hover {
+  background-color: var(--mat-sys-surface-bright) !important;
+  border-color: var(--mat-sys-outline) !important;
+}
+
+.toolbar-btn.active {
+  background-color: var(--mat-sys-primary-fixed-dim) !important;
+  color: var(--mat-sys-primary) !important;
+  border-color: var(--mat-sys-primary) !important;
+}
+
+/* ===================================
+   Search Field - Compact
+   =================================== */
+
+.toolbar-search {
+  flex: 1;
+  max-width: 350px;
+}
+
+.search-field {
+  width: 100%;
+}
+
+.search-field .mat-mdc-text-field-wrapper {
+  padding: 0;
+  background: var(--mat-sys-background);
+}
+
+.search-field .mat-mdc-form-field-infix {
+  min-height: 34px !important;
+  padding: 6px 0 !important;
+}
+
+.search-field .mat-mdc-form-field-icon-prefix {
+  padding: 0 8px 0 10px;
+}
+
+.search-field input {
+  font-size: 13px;
+  padding: 0;
+}
+
+.search-field mat-icon {
+  color: var(--mat-sys-outline);
+  font-size: 18px !important;
+  width: 18px !important;
+  height: 18px !important;
+}
+
+.search-field .mat-mdc-form-field-subscript-wrapper {
+  display: none;
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+
+@media (max-width: 768px) {
+  .view-toolbar {
+    gap: 8px;
+  }
+
+  .toolbar-actions {
+    gap: 4px;
+  }
+
+  .toolbar-btn {
+    width: 32px !important;
+    height: 32px !important;
+    min-width: 32px !important;
+  }
+
+  .toolbar-btn mat-icon {
+    font-size: 16px !important;
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .toolbar-search {
+    max-width: 280px;
+  }
+
+  .search-field input {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .view-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .toolbar-search {
+    max-width: 100%;
+    order: 3;
+    flex-basis: 100%;
+  }
+}

@@ -1,0 +1,97 @@
+/* ===================================
+   Toolbar Section - Compact
+   =================================== */
+
+.toolbar-section {
+  background: var(--mat-sys-background);
+}
+
+.navigation-pills {
+  display: flex;
+  gap: 8px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--mat-sys-outline-variant);
+  background: var(--mat-sys-background);
+  flex-wrap: wrap;
+}
+
+.pill-button {
+  height: 36px !important;
+  padding: 0 20px !important;
+  border-radius: 24px !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--mat-sys-on-background) !important;
+  background-color: transparent !important;
+  border: 1px solid var(--mat-sys-outline-variant) !important;
+  transition: all 0.2s ease !important;
+  white-space: nowrap;
+  line-height: 36px !important;
+}
+
+.pill-button .mdc-button__label {
+  line-height: 1;
+}
+
+.pill-button:hover {
+  background-color: var(--mat-sys-surface-bright) !important;
+  border-color: var(--mat-sys-outline) !important;
+}
+
+.pill-button.active {
+  background-color: var(--mat-sys-primary) !important;
+  color: white !important;
+  border-color: var(--mat-sys-primary) !important;
+}
+
+.toolbar-container {
+  padding: 10px 16px;
+  background: var(--mat-sys-surface-bright);
+  border-bottom: 1px solid var(--mat-sys-outline-variant);
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+
+@media (max-width: 768px) {
+  .navigation-pills {
+    padding: 8px 12px;
+    gap: 6px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .navigation-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pill-button {
+    padding: 0 16px !important;
+    height: 32px !important;
+    font-size: 12px !important;
+    line-height: 32px !important;
+  }
+
+  .toolbar-container {
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 600px) {
+  .navigation-pills {
+    padding: 6px 8px;
+  }
+
+  .pill-button {
+    padding: 0 14px !important;
+    height: 30px !important;
+    line-height: 30px !important;
+  }
+
+  .toolbar-container {
+    padding: 6px 8px;
+  }
+}

@@ -1,3 +1,38 @@
-<p>
-  media-tools works!
-</p>
+<div class="toolbar-content">
+  <!-- Refresh with dropdown -->
+  <button mat-stroked-button [matMenuTriggerFor]="refreshMenu" class="toolbar-btn">
+    <mat-icon>refresh</mat-icon>
+    <mat-icon class="dropdown-icon">arrow_drop_down</mat-icon>
+  </button>
+  <mat-menu #refreshMenu="matMenu">
+    <button mat-menu-item>Refresh All</button>
+    <button mat-menu-item>Refresh Selected</button>
+  </mat-menu>
+
+  <!-- Search with dropdown -->
+  <button mat-stroked-button [matMenuTriggerFor]="searchMenu" class="toolbar-btn">
+    <mat-icon>search</mat-icon>
+    <mat-icon class="dropdown-icon">arrow_drop_down</mat-icon>
+  </button>
+  <mat-menu #searchMenu="matMenu">
+    <button mat-menu-item>Search by Name</button>
+    <button mat-menu-item>Search by Date</button>
+    <button mat-menu-item>Advanced Search</button>
+  </mat-menu>
+
+  <!-- Crop -->
+  <button mat-stroked-button class="toolbar-btn">
+    <mat-icon>crop</mat-icon>
+  </button>
+
+  <!-- Link with dropdown -->
+  <button mat-stroked-button [matMenuTriggerFor]="linkMenu" class="toolbar-btn">
+    <mat-icon>link</mat-icon>
+    <mat-icon class="dropdown-icon">arrow_drop_down</mat-icon>
+  </button>
+  <mat-menu #linkMenu="matMenu">
+    <button mat-menu-item>Copy Link</button>
+    <button mat-menu-item>Share Link</button>
+    <button mat-menu-item>Edit Link</button>
+  </mat-menu>
+</div>

@@ -1,0 +1,45 @@
+<div class="view-toolbar">
+    <!-- Left Side: Action Buttons -->
+    <div class="toolbar-actions">
+        <!-- Select All Checkbox -->
+        <button mat-icon-button class="toolbar-btn" [matMenuTriggerFor]="selectMenu">
+            <mat-icon>check_box_outline_blank</mat-icon>
+        </button>
+        <mat-menu #selectMenu="matMenu">
+            <button mat-menu-item (click)="onSelectAll()">Select All</button>
+            <button mat-menu-item (click)="onSelectNone()">Select None</button>
+        </mat-menu>
+
+        <!-- Shield/Security -->
+        <button mat-icon-button class="toolbar-btn" [matMenuTriggerFor]="securityMenu">
+            <mat-icon>shield</mat-icon>
+        </button>
+        <mat-menu #securityMenu="matMenu">
+            <button mat-menu-item>View Permissions</button>
+            <button mat-menu-item>Security Settings</button>
+        </mat-menu>
+
+        <!-- Folder -->
+        <button mat-icon-button class="toolbar-btn" (click)="onFolderClick()">
+            <mat-icon>folder</mat-icon>
+        </button>
+
+        <!-- Grid View -->
+        <button mat-icon-button class="toolbar-btn" [class.active]="viewMode === 'grid'" (click)="setViewMode('grid')">
+            <mat-icon>apps</mat-icon>
+        </button>
+
+        <!-- List View -->
+        <button mat-icon-button class="toolbar-btn" [class.active]="viewMode === 'list'" (click)="setViewMode('list')">
+            <mat-icon>view_list</mat-icon>
+        </button>
+    </div>
+
+    <!-- Right Side: Search -->
+    <div class="toolbar-search">
+        <mat-form-field appearance="outline" class="search-field">
+            <mat-icon matPrefix>search</mat-icon>
+            <input matInput placeholder="Search in Inbox..." [(ngModel)]="searchText" (input)="onSearch()">
+        </mat-form-field>
+    </div>
+</div>

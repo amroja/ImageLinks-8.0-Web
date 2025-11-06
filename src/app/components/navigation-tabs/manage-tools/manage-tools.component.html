@@ -1,3 +1,86 @@
-<p>
-  manage-tools works!
-</p>
+<div class="toolbar-content">
+  <!-- Document -->
+  <button mat-stroked-button class="toolbar-btn" (click)="onNewDocument()">
+    <mat-icon>description</mat-icon>
+  </button>
+
+  <!-- Lock -->
+  <button mat-stroked-button class="toolbar-btn" (click)="onLock()">
+    <mat-icon>lock</mat-icon>
+  </button>
+
+  <!-- Refresh -->
+  <button mat-stroked-button class="toolbar-btn" (click)="onRefresh()">
+    <mat-icon>refresh</mat-icon>
+  </button>
+
+  <!-- Settings -->
+  <button mat-stroked-button class="toolbar-btn" (click)="onSettings()">
+    <mat-icon>settings</mat-icon>
+  </button>
+
+  <!-- Delete -->
+  <button mat-stroked-button class="toolbar-btn" (click)="onDelete()">
+    <mat-icon>delete</mat-icon>
+  </button>
+
+  <!-- History -->
+  <button mat-stroked-button class="toolbar-btn" (click)="onHistory()">
+    <mat-icon>history</mat-icon>
+  </button>
+
+  <!-- Edit -->
+  <button mat-stroked-button class="toolbar-btn" (click)="onEdit()">
+    <mat-icon>edit</mat-icon>
+  </button>
+
+  <!-- Code -->
+  <button mat-stroked-button class="toolbar-btn" (click)="onCode()">
+    <mat-icon>code</mat-icon>
+  </button>
+
+  <!-- Import with dropdown -->
+  <button mat-stroked-button [matMenuTriggerFor]="importMenu" class="toolbar-btn">
+    <mat-icon>file_download</mat-icon>
+    <mat-icon class="dropdown-icon">arrow_drop_down</mat-icon>
+  </button>
+  <mat-menu #importMenu="matMenu">
+    <button mat-menu-item>Import from File</button>
+    <button mat-menu-item>Import from URL</button>
+  </mat-menu>
+
+  <!-- Export with dropdown -->
+  <button mat-stroked-button [matMenuTriggerFor]="exportMenu" class="toolbar-btn">
+    <mat-icon>file_upload</mat-icon>
+    <mat-icon class="dropdown-icon">arrow_drop_down</mat-icon>
+  </button>
+  <mat-menu #exportMenu="matMenu">
+    <button mat-menu-item>Export as PDF</button>
+    <button mat-menu-item>Export as CSV</button>
+  </mat-menu>
+
+  <!-- Print with dropdown -->
+  <button mat-stroked-button [matMenuTriggerFor]="printMenu" class="toolbar-btn">
+    <mat-icon>print</mat-icon>
+    <mat-icon class="dropdown-icon">arrow_drop_down</mat-icon>
+  </button>
+  <mat-menu #printMenu="matMenu">
+    <button mat-menu-item>Print Preview</button>
+    <button mat-menu-item>Print All</button>
+  </mat-menu>
+
+  <!-- File -->
+  <button mat-stroked-button class="toolbar-btn" (click)="onNewFile()">
+    <mat-icon>insert_drive_file</mat-icon>
+  </button>
+
+  <!-- Copy -->
+  <button mat-stroked-button class="toolbar-btn" (click)="onCopy()">
+    <mat-icon>content_copy</mat-icon>
+  </button>
+
+  <!-- Email -->
+  <button mat-stroked-button class="toolbar-btn" (click)="onEmail()">
+    <mat-icon>email</mat-icon>
+  </button>
+</div>

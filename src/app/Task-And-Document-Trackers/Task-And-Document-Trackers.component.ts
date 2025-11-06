@@ -22,6 +22,7 @@ import { NavigationTabsComponent } from '../components/navigation-tabs/navigatio
 @Component({
   selector: 'app-Task-And-Document-Trackers',
   templateUrl: './Task-And-Document-Trackers.component.html',
+  styleUrls: ['./Task-And-Document-Trackers.component.css'],
   imports: [
     MaterialModule,
     CommonModule,

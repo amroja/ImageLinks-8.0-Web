@@ -1,3 +1,70 @@
-<p>
-  inbox works!
-</p>
+<div class="inbox-container-compact">
+  <!-- Header - مُختصر -->
+  <div class="inbox-header-compact">
+    <h4 class="f-w-600 f-s-16 m-0">Document Inbox</h4>
+    <p class="text-body f-s-13 m-0">Documents waiting for your attention</p>
+  </div>
+
+  <!-- Document Cards List - Compact -->
+  <div class="documents-list-compact">
+    <mat-card *ngFor="let doc of documents" class="document-card-compact">
+      <div class="document-card-content">
+        <!-- Icon + Content -->
+        <div class="d-flex align-items-center gap-12 w-100">
+          <!-- Document Icon - أصغر -->
+          <div class="document-icon-small bg-light-primary text-primary">
+            <mat-icon class="icon-20">description</mat-icon>
+          </div>
+
+          <!-- Document Info -->
+          <div class="flex-1-auto min-width-0">
+            <!-- Title -->
+            <h5 class="f-w-600 f-s-15 m-0 m-b-4 text-truncate">{{ doc.title }}</h5>
+
+            <!-- Meta Info - في سطر واحد -->
+            <div class="document-meta-compact">
+              <span class="meta-item">
+                <mat-icon class="icon-14">person</mat-icon>
+                <span class="f-s-12">{{ doc.user }}</span>
+              </span>
+
+              <span class="meta-separator">•</span>
+
+              <span class="meta-item">
+                <mat-icon class="icon-14">calendar_today</mat-icon>
+                <span class="f-s-12">{{ doc.date }}</span>
+              </span>
+
+              <span class="meta-separator">•</span>
+
+              <span class="meta-item">
+                <mat-icon class="icon-14">business</mat-icon>
+                <span class="f-s-12">{{ doc.department }}</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Tags - في العمود -->
+          <div class="document-tags-compact">
+            <span *ngFor="let tag of doc.tags" class="tag-compact" [ngClass]="{
+                'tag-pending': tag.type === 'pending',
+                'tag-review': tag.type === 'review',
+                'tag-high': tag.priority === 'high',
+                'tag-medium': tag.priority === 'medium',
+                'tag-default': !tag.type && !tag.priority
+              }">
+              {{ tag.label }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+
+  <!-- Empty State -->
+  <div *ngIf="documents.length === 0" class="empty-state-compact">
+    <mat-icon class="icon-40 text-body">inbox</mat-icon>
+    <h5 class="f-w-600 f-s-16 m-t-12 m-b-4">No Documents</h5>
+    <p class="text-body f-s-13">There are no documents in your inbox</p>
+  </div>
+</div>

@@ -1,24 +1,21 @@
-<mat-tab-group>
-  <mat-tab (click)="onTabChange('view')" label="View"></mat-tab>
-  <mat-tab (click)="onTabChange('manage')" label="Manage"></mat-tab>
-  <mat-tab (click)="onTabChange('pages')" label="Pages"></mat-tab>
-  <mat-tab (click)="onTabChange('workflow')" label="Workflow"></mat-tab>
-  <mat-tab (click)="onTabChange('search')" label="Search"></mat-tab>
-  <mat-tab (click)="onTabChange('media')" label="Media"></mat-tab>
-</mat-tab-group>
+<div class="toolbar-section">
+  <!-- Navigation Tabs with Pills Style -->
+  <div class="navigation-pills">
+    <button mat-button *ngFor="let tab of tabs; let i = index" [class.active]="selectedTabIndex === i"
+      (click)="onTabChange(i)" class="pill-button">
+      {{ tab }}
+    </button>
+  </div>
 
-<div class="mt-4">
-  @if (selectedTab === 'view') {
-  <app-view-tools />
-  } @else if (selectedTab === 'manage') {
-  <app-manage-tools />
-  } @else if (selectedTab === 'pages') {
-  <app-pages-tools />
-  } @else if (selectedTab === 'workflow') {
-  <app-workflow-tools />
-  } @else if (selectedTab === 'search') {
-  <app-search-tools />
-  } @else if (selectedTab === 'media') {
-  <app-media-tools />
-  }
+  <!-- Toolbar Content based on selected tab -->
+  <div class="toolbar-container">
+    <ng-container [ngSwitch]="selectedTab">
+      <app-view-tools *ngSwitchCase="'view'" />
+      <app-manage-tools *ngSwitchCase="'manage'" />
+      <app-pages-tools *ngSwitchCase="'pages'" />
+      <app-workflow-tools *ngSwitchCase="'workflow'" />
+      <app-search-tools *ngSwitchCase="'search'" />
+      <app-media-tools *ngSwitchCase="'media'" />
+    </ng-container>
+  </div>
 </div>
